@@ -18,10 +18,14 @@ const Todos = (props) =>
         return <TodoList name={todo.name} key={todo.id}></TodoList>;
     });
 
-    const formHandler = ( event ) => 
+    const formHandler = ( courseName ) => 
     {
-        event.preventDefault();
-        console.log("Form Submitted");
+        console.log("Parent =>Form Submitted");
+
+
+        setTodos((prevState) =>{
+            return [...prevState,{ name: courseName, id: Math.random().toString() }]
+        })
     }
 
 return(

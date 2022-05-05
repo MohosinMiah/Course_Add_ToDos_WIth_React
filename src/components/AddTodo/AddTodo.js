@@ -1,16 +1,32 @@
 
+import React,{useState} from "react";
+
 const AddTodo = ( props ) =>
 {
+  const [courseName, setcourseName] = useState(''); // '' is the initial state value
 
-    
+  const courseChangeHandler = (event) =>{
+
+    setcourseName((prevState)=>{
+            return  event.target.value;   
+        })
+
+  }
+  
+
+  const formHandler = ( event ) => 
+  {
+      event.preventDefault();
+      props.formHandler(courseName);
+  }
 
 return(
 
     <div>
-      <form onSubmit={props.formHandler}>
+      <form onSubmit={formHandler}>
       <div className="mb-3">
             <label className="form-label">Add Course Name</label>
-            <input type="text" className="form-control"  placeholder="Course Name"/>
+            <input type="text" onChange={courseChangeHandler} className="form-control"  placeholder="Course Name"/>
         </div>
         <div className="mb-3">
             <input type="submit" value="Add New "/>
