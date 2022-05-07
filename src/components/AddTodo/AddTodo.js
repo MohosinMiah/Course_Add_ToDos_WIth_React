@@ -5,7 +5,7 @@ const AddTodo = ( props ) =>
 {
   const [courseName, setcourseName] = useState(''); // '' is the initial state value
 
-  const courseChangeHandler = (event) =>{
+  const courseChangeHandler = ( event ) =>{
 
     setcourseName((prevState)=>{
             return  event.target.value;   
@@ -18,6 +18,7 @@ const AddTodo = ( props ) =>
   {
       event.preventDefault();
       props.formHandler(courseName);
+      setcourseName('');
   }
 
 return(
